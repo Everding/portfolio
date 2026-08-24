@@ -1,0 +1,273 @@
+/* App.css */
+
+/* --- Variables de Color --- */
+:root {
+  --color-bg-dark: #121212;
+  --color-bg-light: #ffffff;
+  --color-primary-lime: #43cf20;
+  --color-text-on-dark: #f0f0f0;
+  --color-text-on-light: #1a1a1a;
+  --color-accent: #2a2a2a;
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- Reseteo Base --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* --- Layout General --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* --- Secciones --- */
+/* App.css */
+section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+}
+
+
+.about-image-container, .about-text, .timeline-img, .timeline-content, .skills-grid {
+  will-change: transform, opacity;
+}
+
+/* Secciones con fondo claro */
+.section-light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-on-light);
+}
+
+/* --- Títulos --- */
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+}
+
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-primary-lime);
+}
+
+
+.wave-container {
+  position: relative;
+}
+
+.wave-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3%3Cpath fill='%2343cf20' fill-opacity='1' d='M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,149.3C672,149,768,203,864,218.7C960,235,1056,213,1152,186.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* --- Botones --- */
+.btn-primary {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: var(--color-primary-lime);
+  color: #000;
+  border: 2px solid var(--color-primary-lime);
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--color-primary-lime);
+}
+
+/* --- Botón Volver Arriba (Floating Button) --- */
+.back-to-top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-primary-lime);
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 1100; /* Por encima de todo */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Animación de entrada */
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  transform: scale(1.1);
+  background-color: #fff;
+}
+
+/* --- Footer --- */
+.footer {
+  background-color: #000;
+  padding: 60px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #333;
+  width: 100%;
+}
+
+
+/* Contenedor de la foto */
+.Fotoperfil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: fit-content;
+  margin: 0 auto; 
+}
+
+/* Estilos de la imagen */
+.foto-per {
+  width: 250px;           
+  height: 250px;
+  object-fit: cover;     
+  border-radius: 50%;     
+  border: 5px solid var(--color-primary-lime); 
+  background-color: var(--color-accent);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 
+              0 0 15px rgba(67, 207, 32, 0.2);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.foto-per:hover {
+  transform: scale(1.05);
+  border-color: #ffffff;  
+}
+
+.Fotoperfil::before {
+  content: '';
+  position: absolute;
+  width: 265px;
+  height: 265px;
+  border-radius: 50%;
+  border: 2px dashed var(--color-primary-lime);
+  opacity: 0.5;
+  animation: rotate 10s linear infinite; 
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .social-sidebar { left: 10px; bottom: 10px; }
+  .social-icon { width: 50px; height: 50px; }
+  .social-icon svg { font-size: 25px; }
+}
+
+@media (max-width: 480px) {
+  .social-sidebar { display: none; }
+}
+
+/* --- Sección Skills --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas por defecto en pantallas grandes */
+  gap: 20px;
+  width: 100%;
+}
+
+/* Opcional: estilo para cada tarjeta/item individual si usas .skill-card */
+.skill-card {
+  background-color: var(--color-accent);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+
+/* --- Media Queries Responsivas --- */
+
+/* Pantallas medianas / Laptops pequeñas: 3 Columnas */
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablets / Móviles grandes: 2 Columnas */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .social-sidebar { left: 10px; bottom: 10px; }
+  .social-icon { width: 50px; height: 50px; }
+  .social-icon svg { font-size: 25px; }
+}
+
+/* Móviles pequeños: 1 Columna */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-sidebar { display: none; }
+}
